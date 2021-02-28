@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Project.Service.OrderViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+    int i = 0;
+    <table class="table">
+        <tr>
+            <th>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.CheckBoxFor(modelItem => item.IsSelect, new { Name = $"viewModel[{i}].IsSelect" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                    <input type="hidden" name=@($"viewModel[{i}].Id") value=@(item.Id) />
+                </td>
+                <td>
+                    @Html.ActionLink(item.ProductId.ToString(), "Detail", "Product", new { id = item.ProductId }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderStatus)
+                    <input type="hidden" name=@($"viewModel[{i}].OrderStatus") value=@(item.OrderStatus) />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+            </tr>
+            i++;
+        }
+
+    </table>
+    <input class="btn btn-primary" type="submit" value="Confirm" />
+}
