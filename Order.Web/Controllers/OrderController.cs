@@ -1,4 +1,5 @@
-﻿using Project.Service;
+﻿using Project.Repository;
+using Project.Service;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -15,11 +16,17 @@ namespace Project.Web.Controllers
         private readonly IOrderService OrderService;
 
         /// <summary>
+        /// 訂單儲存庫
+        /// </summary>
+        private readonly IOrderRepository OrderRepository;
+
+        /// <summary>
         /// 建構子
         /// </summary>
         public OrderController()
         {
-            this.OrderService = new OrderService();
+            this.OrderRepository = new OrderRepository();
+            this.OrderService = new OrderService(this.OrderRepository);
         }
 
         /// <summary>

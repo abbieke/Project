@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 
@@ -19,8 +18,6 @@ namespace Project.Repository
             {
                 connString = ConfigurationManager.ConnectionStrings["Order"].ConnectionString;
             }
-
-            //conn = new SqlConnection(connString);
         }
 
         /// <summary>

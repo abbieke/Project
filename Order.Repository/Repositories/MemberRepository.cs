@@ -18,19 +18,6 @@ namespace Project.Repository
             {
                 connString = ConfigurationManager.ConnectionStrings["Order"].ConnectionString;
             }
-
-            //conn = new SqlConnection(connString);
-        }
-
-        public List<Member> SelectMembers(string sql)
-        {
-            List<Member> members;
-            using (conn = new SqlConnection(connString))
-            {
-                sql = "SELECT member_id AS Id, member_name AS Name, member_phone AS Phone FROM Member";
-                members = conn.Query<Member>(sql).ToList();
-            }
-            return members;
         }
     }
 }

@@ -17,9 +17,9 @@ namespace Project.Service
         /// <summary>
         /// 建構子
         /// </summary>
-        public OrderService()
+        public OrderService(IOrderRepository orderRepository)
         {
-            this.OrderRepository = new OrderRepository();
+            this.OrderRepository = orderRepository;
         }
 
         /// <summary>

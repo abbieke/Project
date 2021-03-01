@@ -29,8 +29,6 @@ namespace Project.Repository
             {
                 connString = ConfigurationManager.ConnectionStrings["Order"].ConnectionString;
             }
-
-            //conn = new SqlConnection(connString);
         }
 
         /// <summary>
