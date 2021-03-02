@@ -17,9 +17,10 @@ namespace Project.Web.Controllers
         /// <summary>
         /// 建構子
         /// </summary>
-        public ProductController()
+        /// <param name="productService">商品服務</param>
+        public ProductController(IProductService productService)
         {
-            this.ProductService = new ProductService();
+            this.ProductService = productService;
         }
 
         /// <summary>

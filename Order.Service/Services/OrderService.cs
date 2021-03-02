@@ -17,6 +17,7 @@ namespace Project.Service
         /// <summary>
         /// 建構子
         /// </summary>
+        /// <param name="orderRepository">訂單儲存庫</param>
         public OrderService(IOrderRepository orderRepository)
         {
             this.OrderRepository = orderRepository;

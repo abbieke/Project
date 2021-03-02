@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
 using Project.Repository;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -51,7 +50,7 @@ namespace Project.Service.Test
             Assert.AreEqual(model.First().Id, actualModel.First().Id);
         }
 
-        private OrderService GetService() 
+        private OrderService GetService()
         {
             return new OrderService(this.OrderRepository);
         }

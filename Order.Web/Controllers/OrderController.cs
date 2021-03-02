@@ -16,17 +16,11 @@ namespace Project.Web.Controllers
         private readonly IOrderService OrderService;
 
         /// <summary>
-        /// 訂單儲存庫
-        /// </summary>
-        private readonly IOrderRepository OrderRepository;
-
-        /// <summary>
         /// 建構子
         /// </summary>
-        public OrderController()
+        public OrderController(IOrderService orderService)
         {
-            this.OrderRepository = new OrderRepository();
-            this.OrderService = new OrderService(this.OrderRepository);
+            this.OrderService = orderService;
         }
 
         /// <summary>

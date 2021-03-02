@@ -16,9 +16,10 @@ namespace Project.Web.Controllers
         /// <summary>
         /// 建構子
         /// </summary>
-        public MemberController()
+        /// <param name="memberService">會員服務</param>
+        public MemberController(IMemberService memberService)
         {
-            this.MemberService = new MemberService();
+            this.MemberService = memberService;
         }
 
         // GET: Member

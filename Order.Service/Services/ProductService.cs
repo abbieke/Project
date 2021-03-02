@@ -1,10 +1,5 @@
 ﻿using Project.Repository;
 using Project.Repository.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Project.Service
 {
@@ -21,9 +16,10 @@ namespace Project.Service
         /// <summary>
         /// 建構子
         /// </summary>
-        public ProductService()
+        /// <param name="productRepository">商品儲存庫</param>
+        public ProductService(IProductRepository productRepository)
         {
-            this.ProductRepository = new ProductRepository();
+            this.ProductRepository = productRepository;
         }
 
         /// <summary>

@@ -15,9 +15,10 @@ namespace Project.Service
         /// <summary>
         /// 建構子
         /// </summary>
-        public MemberService()
+        /// <param name="memberRepository">會員儲存庫</param>
+        public MemberService(IMemberRepository memberRepository)
         {
-            this.MemberRepository = new MemberRepository();
+            this.MemberRepository = memberRepository;
         }
     }
 }
