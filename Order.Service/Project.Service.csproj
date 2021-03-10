@@ -57,6 +57,8 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -73,6 +75,8 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Order.Repository\Project.Repository.csproj">
@@ -83,13 +87,21 @@
   <ItemGroup>
     <Compile Include="Interface\IMemberService.cs" />
     <Compile Include="Interface\IOrderService.cs" />
+    <Compile Include="Interface\IParameterService.cs" />
     <Compile Include="Interface\IProductService.cs" />
+    <Compile Include="Interface\IShippingOrderService.cs" />
+    <Compile Include="Models\ViewModel\LoginViewModel.cs" />
     <Compile Include="Models\ViewModel\OrderViewModel.cs" />
+    <Compile Include="QueryBuilders\MemberQueryBuilder.cs" />
     <Compile Include="QueryBuilders\OrderQueryBuilder.cs" />
+    <Compile Include="QueryBuilders\ParameterQueryBuilder.cs" />
     <Compile Include="QueryBuilders\ProductQueryBuilder.cs" />
+    <Compile Include="QueryBuilders\ShippingOrderQueryBuilder.cs" />
     <Compile Include="Services\MemberService.cs" />
     <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\ParameterService.cs" />
     <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\ShippingOrderService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

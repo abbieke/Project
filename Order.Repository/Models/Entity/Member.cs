@@ -19,5 +19,10 @@
         /// 會員手機號碼
         /// </summary>
         public string Phone { get; set; }
+
+        /// <summary>
+        /// 會員密碼
+        /// </summary>
+        public string Password { get; set; }
     }
 }

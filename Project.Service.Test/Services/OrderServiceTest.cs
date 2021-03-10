@@ -15,11 +15,17 @@ namespace Project.Service.Test
         private IOrderRepository OrderRepository;
 
         /// <summary>
+        /// 參數表服務
+        /// </summary>
+        private IShippingOrderService ShippingOrderService;
+
+        /// <summary>
         /// TestInit
         /// </summary>
         public OrderServiceTest()
         {
             this.OrderRepository = Substitute.For<IOrderRepository>();
+            this.ShippingOrderService = Substitute.For<IShippingOrderService>();
         }
 
         /// <summary>
@@ -29,6 +35,8 @@ namespace Project.Service.Test
         public void GetMemberOrderList_取得會員訂單清單_取得成功()
         {
             var service = GetService();
+            int memberId = 1;
+
             List<OrderViewModel> model = new List<OrderViewModel>()
             {
                 new OrderViewModel()
@@ -45,14 +53,16 @@ namespace Project.Service.Test
 
             this.OrderRepository.Query<OrderViewModel>(Arg.Any<string>(), Arg.Any<object>()).Returns(model);
 
-            List<OrderViewModel> actualModel = service.GetMemberOrderList();
+            List<OrderViewModel> actualModel = service.GetMemberOrderList(memberId);
 
             Assert.AreEqual(model.First().Id, actualModel.First().Id);
         }
 
         private OrderService GetService()
         {
-            return new OrderService(this.OrderRepository);
+            return new OrderService(
+                this.OrderRepository,
+                this.ShippingOrderService);
         }
     }
 }

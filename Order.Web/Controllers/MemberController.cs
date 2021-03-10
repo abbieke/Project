@@ -1,4 +1,5 @@
 ﻿using Project.Service;
+using Project.Service.Models;
 using System.Web.Mvc;
 
 namespace Project.Web.Controllers
@@ -23,9 +24,28 @@ namespace Project.Web.Controllers
         }
 
         // GET: Member
-        public ActionResult Index()
+        public ActionResult Login()
         {
-            return View();
+            return View(new LoginViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel login)
+        {
+            (bool isSuccess, int? memberId) = this.MemberService.Login(login);
+
+            if (isSuccess && memberId != null)
+            {
+                Session["MemberId"] = memberId;
+
+                return this.RedirectToAction(nameof(OrderController.Index), "Order");
+            }
+            else
+            {
+                ViewBag.Msg = "登入失敗...";
+
+                return View();
+            }
         }
     }
 }

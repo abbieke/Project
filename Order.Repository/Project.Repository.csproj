@@ -81,14 +81,20 @@
     <Compile Include="Enums\OrderStatusEnum.cs" />
     <Compile Include="Interface\IMemberRepository.cs" />
     <Compile Include="Interface\IOrderRepository.cs" />
+    <Compile Include="Interface\IParameterRepository.cs" />
     <Compile Include="Interface\IProductRepository.cs" />
+    <Compile Include="Interface\IShippingOrderRepository.cs" />
     <Compile Include="Models\Entity\Member.cs" />
     <Compile Include="Models\Entity\Order.cs" />
     <Compile Include="Models\Entity\OrderDetail.cs" />
+    <Compile Include="Models\Entity\Parameter.cs" />
     <Compile Include="Models\Entity\Product.cs" />
+    <Compile Include="Models\Entity\ShippingOrder.cs" />
     <Compile Include="Repositories\MemberRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\ParameterRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ShippingOrderRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,6 +1,8 @@
 ﻿using Project.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 
 namespace Project.Service
 {
@@ -15,22 +17,28 @@ namespace Project.Service
         private readonly IOrderRepository OrderRepository;
 
         /// <summary>
+        /// 參數表服務
+        /// </summary>
+        private readonly IShippingOrderService ShippingOrderService;
+
+        /// <summary>
         /// 建構子
         /// </summary>
         /// <param name="orderRepository">訂單儲存庫</param>
-        public OrderService(IOrderRepository orderRepository)
+        public OrderService(
+            IOrderRepository orderRepository,
+            IShippingOrderService shippingOrderService)
         {
             this.OrderRepository = orderRepository;
+            this.ShippingOrderService = shippingOrderService;
         }
 
         /// <summary>
         /// 取得會員訂單清單
         /// </summary>
         /// <returns>訂單清單</returns>
-        public List<OrderViewModel> GetMemberOrderList()
+        public List<OrderViewModel> GetMemberOrderList(int memberId)
         {
-            int memberId = 1;
-
             OrderQueryBuilder builder = new OrderQueryBuilder();
             string sql = builder.GetMemberOrderListSql();
 
@@ -50,7 +58,26 @@ namespace Project.Service
 
             if (viewModel.Count != 0)
             {
-                this.OrderRepository.Execute(sql, new { Status = (int)OrderStatusEnum.ToBeShipped, OrderIds = viewModel.Select(x => x.Id).ToArray() });
+                try
+                {
+                    using (TransactionScope scope = new TransactionScope())
+                    {
+                        List<string> orderIds = viewModel.Select(x => x.Id).ToList();
+
+                        this.OrderRepository.Execute(sql, new { Status = (int)OrderStatusEnum.ToBeShipped, OrderIds = orderIds.ToArray() });
+
+                        orderIds.ForEach(x => this.ShippingOrderService.InsertShippingOrder(x));
+
+                        scope.Complete();
+                    }
+
+                    // 紀錄更新完成
+                }
+                catch(Exception ex)
+                {
+                    // 紀錄訂單更新失敗
+                }
+                
             }
         }
     }

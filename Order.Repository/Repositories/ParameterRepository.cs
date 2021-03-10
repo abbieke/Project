@@ -5,16 +5,43 @@ using System.Data.SqlClient;
 
 namespace Project.Repository
 {
-    public class MemberRepository : IMemberRepository
+    /// <summary>
+    /// 參數表儲存庫
+    /// </summary>
+    public class ParameterRepository : IParameterRepository
     {
+        /// <summary>
+        /// 連接字串
+        /// </summary>
         private static string connString;
+
+        /// <summary>
+        /// 開啟連接
+        /// </summary>
         private SqlConnection conn;
 
-        public MemberRepository()
+        /// <summary>
+        /// 建構子
+        /// </summary>
+        public ParameterRepository()
         {
             if (string.IsNullOrEmpty(connString))
             {
                 connString = ConfigurationManager.ConnectionStrings["Order"].ConnectionString;
+            }
+        }
+
+        /// <summary>
+        /// 執行 Sql
+        /// </summary>
+        /// <param name="sql">Sql語法</param>
+        /// <param name="param">參數物件</param>
+        /// <returns>執行結果</returns>
+        public int Execute(string sql, object param = null)
+        {
+            using (conn = new SqlConnection(connString))
+            {
+                return conn.Execute(sql, param);
             }
         }
 

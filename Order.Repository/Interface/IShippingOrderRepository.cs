@@ -3,10 +3,18 @@
 namespace Project.Repository
 {
     /// <summary>
-    /// 會員儲存庫介面
+    /// 配送訂單儲存庫介面
     /// </summary>
-    public interface IMemberRepository
+    public interface IShippingOrderRepository
     {
+        /// <summary>
+        /// 執行 Sql
+        /// </summary>
+        /// <param name="sql">Sql語法</param>
+        /// <param name="param">參數物件</param>
+        /// <returns>執行結果</returns>
+        int Execute(string sql, object param = null);
+
         /// <summary>
         /// 查詢
         /// </summary>

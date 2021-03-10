@@ -5,12 +5,25 @@ using System.Data.SqlClient;
 
 namespace Project.Repository
 {
-    public class MemberRepository : IMemberRepository
+    /// <summary>
+    /// 配送訂單儲存庫
+    /// </summary>
+    public class ShippingOrderRepository : IShippingOrderRepository
     {
+        /// <summary>
+        /// 連接字串
+        /// </summary>
         private static string connString;
+
+        /// <summary>
+        /// 開啟連接
+        /// </summary>
         private SqlConnection conn;
 
-        public MemberRepository()
+        /// <summary>
+        /// 建構子
+        /// </summary>
+        public ShippingOrderRepository()
         {
             if (string.IsNullOrEmpty(connString))
             {
@@ -30,6 +43,20 @@ namespace Project.Repository
             using (conn = new SqlConnection(connString))
             {
                 return conn.Query<TModel>(sql, param);
+            }
+        }
+
+        /// <summary>
+        /// 執行 Sql
+        /// </summary>
+        /// <param name="sql">Sql語法</param>
+        /// <param name="param">參數物件</param>
+        /// <returns>執行結果</returns>
+        public int Execute(string sql, object param = null)
+        {
+            using (conn = new SqlConnection(connString))
+            {
+                return conn.Execute(sql, param);
             }
         }
     }

@@ -257,6 +257,7 @@
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ShippingOrderController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -328,6 +329,8 @@
     <Content Include="Views\Member\Index.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Member\Login.cshtml" />
+    <Content Include="Views\ShippingOrder\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

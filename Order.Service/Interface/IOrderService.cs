@@ -11,7 +11,7 @@ namespace Project.Service
         /// 取得會員訂單清單
         /// </summary>
         /// <returns>訂單清單</returns>
-        List<OrderViewModel> GetMemberOrderList();
+        List<OrderViewModel> GetMemberOrderList(int memberId);
 
         /// <summary>
         /// 更新訂單狀態

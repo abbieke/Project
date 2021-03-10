@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<Project.Service.OrderViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    if (Session["MemberId"] == null || string.IsNullOrWhiteSpace(Session["MemberId"].ToString()))
+    {
+        Response.Redirect("~/Member/Login");
+    }
 }
 
 @using (Html.BeginForm())

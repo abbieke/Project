@@ -29,7 +29,14 @@ namespace Project.Web.Controllers
         /// <returns>訂單清單列表</returns>
         public ActionResult Index()
         {
-            List<OrderViewModel> viewModel = this.OrderService.GetMemberOrderList();
+            if (Session["MemberId"] == null || string.IsNullOrWhiteSpace(Session["MemberId"].ToString()))
+            {
+                return this.RedirectToAction(nameof(MemberController.Login), "Member");
+            }
+
+            int memberId = (int)Session["MemberId"];
+
+            List<OrderViewModel> viewModel = this.OrderService.GetMemberOrderList(memberId);
 
             return View(viewModel);
         }
@@ -47,7 +54,7 @@ namespace Project.Web.Controllers
                 this.OrderService.UpdateOrderStatus(viewModel);
             }
 
-            return this.RedirectToAction("Index", "Order");
+            return this.RedirectToAction(nameof(OrderController.Index));
         }
     }
 }
