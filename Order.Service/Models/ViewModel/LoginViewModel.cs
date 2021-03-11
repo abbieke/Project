@@ -1,4 +1,6 @@
-﻿namespace Project.Service.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Project.Service.Models
 {
     /// <summary>
     /// 登入 ViewModel
@@ -13,6 +15,8 @@
         /// <summary>
         /// 會員密碼
         /// </summary>
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage ="請輸入密碼")]
         public string Password { get; set; }
     }
 }

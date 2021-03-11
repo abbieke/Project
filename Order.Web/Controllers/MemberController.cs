@@ -23,12 +23,20 @@ namespace Project.Web.Controllers
             this.MemberService = memberService;
         }
 
-        // GET: Member
+        /// <summary>
+        /// 登入
+        /// </summary>
+        /// <returns>登入 ViewModel</returns>
         public ActionResult Login()
         {
             return View(new LoginViewModel());
         }
 
+        /// <summary>
+        /// 登入
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns>登入結果</returns>
         [HttpPost]
         public ActionResult Login(LoginViewModel login)
         {

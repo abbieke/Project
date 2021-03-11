@@ -5,11 +5,24 @@ using System.Data.SqlClient;
 
 namespace Project.Repository
 {
+    /// <summary>
+    /// 會員儲存庫
+    /// </summary>
     public class MemberRepository : IMemberRepository
     {
+        /// <summary>
+        /// 連接字串
+        /// </summary>
         private static string connString;
+
+        /// <summary>
+        /// 連接DB
+        /// </summary>
         private SqlConnection conn;
 
+        /// <summary>
+        /// 建構子
+        /// </summary>
         public MemberRepository()
         {
             if (string.IsNullOrEmpty(connString))

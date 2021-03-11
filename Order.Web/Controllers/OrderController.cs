@@ -1,5 +1,4 @@
-﻿using Project.Repository;
-using Project.Service;
+﻿using Project.Service;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -18,6 +17,7 @@ namespace Project.Web.Controllers
         /// <summary>
         /// 建構子
         /// </summary>
+        /// <param name="orderService">訂單服務</param>
         public OrderController(IOrderService orderService)
         {
             this.OrderService = orderService;

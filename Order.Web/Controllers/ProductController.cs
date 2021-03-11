@@ -5,7 +5,7 @@ using System.Web.Mvc;
 namespace Project.Web.Controllers
 {
     /// <summary>
-    ///商品控制器
+    /// 商品控制器
     /// </summary>
     public class ProductController : Controller
     {

@@ -6,6 +6,9 @@ using System.Linq;
 
 namespace Project.Service.Test
 {
+    /// <summary>
+    /// 訂單服務測試
+    /// </summary>
     [TestClass]
     public class OrderServiceTest
     {
@@ -34,7 +37,7 @@ namespace Project.Service.Test
         [TestMethod]
         public void GetMemberOrderList_取得會員訂單清單_取得成功()
         {
-            var service = GetService();
+            OrderService service = this.GetService();
             int memberId = 1;
 
             List<OrderViewModel> model = new List<OrderViewModel>()
@@ -58,6 +61,10 @@ namespace Project.Service.Test
             Assert.AreEqual(model.First().Id, actualModel.First().Id);
         }
 
+        /// <summary>
+        /// 測試服務實體
+        /// </summary>
+        /// <returns>服務實體</returns>
         private OrderService GetService()
         {
             return new OrderService(

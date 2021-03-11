@@ -20,7 +20,7 @@ namespace Project.Web
                 .Where(x => x.Name.EndsWith("Repository", StringComparison.Ordinal))
                 .AsImplementedInterfaces();
 
-            //B.註冊所有名稱為Service結尾的物件
+            // B.註冊所有名稱為Service結尾的物件
             builder.RegisterAssemblyTypes(Assembly.Load("Project.Service"))
                 .Where(x => x.Name.EndsWith("Service", StringComparison.Ordinal))
                 .AsImplementedInterfaces();

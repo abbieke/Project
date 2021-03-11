@@ -3,8 +3,6 @@ using Project.Repository.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Project.Service
 {
@@ -27,6 +25,7 @@ namespace Project.Service
         /// 建構子
         /// </summary>
         /// <param name="shippingOrderRepository">配送訂單儲存庫</param>
+        /// <param name="parameterService">參數表服務</param>
         public ShippingOrderService(
             IShippingOrderRepository shippingOrderRepository,
             IParameterService parameterService)
@@ -43,7 +42,7 @@ namespace Project.Service
         {
             ShippingOrder model = new ShippingOrder()
             {
-                Id = this.GetPromotionSequence(),
+                Id = this.GetShippingOrderSequence(),
                 OrderId = orderId,
                 Status = 1,
                 CteatedAt = DateTime.Now
@@ -69,10 +68,10 @@ namespace Project.Service
         }
 
         /// <summary>
-        /// 取得 B2B 促案編號號
+        /// 取得配送編號
         /// </summary>
-        /// <returns>促案編號號</returns>
-        private string GetPromotionSequence()
+        /// <returns>編號</returns>
+        private string GetShippingOrderSequence()
         {
             string initValue = DateTime.Now.ToString("yyyyMMdd00000");
 

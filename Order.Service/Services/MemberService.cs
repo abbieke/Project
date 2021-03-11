@@ -43,7 +43,7 @@ namespace Project.Service
 
             List<Member> members = this.MemberRepository.Query<Member>(sql, new { Phone = login.Phone, Password = login.Password }).ToList();
 
-            if (members == null || members.Count() == 0 || members.Count > 1)
+            if (members == null || members.Count == 0 || members.Count > 1)
             {
                 return (false, null);
             }

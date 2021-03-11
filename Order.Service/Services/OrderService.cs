@@ -76,8 +76,7 @@ namespace Project.Service
                 catch(Exception ex)
                 {
                     // 紀錄訂單更新失敗
-                }
-                
+                }  
             }
         }
     }
