@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Project.Service
+﻿namespace Project.Service
 {
     /// <summary>
-    /// 
+    /// 配送訂單 Sql
     /// </summary>
     public class ShippingOrderQueryBuilder
     {
+        /// <summary>
+        /// 建構子
+        /// </summary>
         public ShippingOrderQueryBuilder()
-        { 
+        {
         }
 
         /// <summary>

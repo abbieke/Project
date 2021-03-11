@@ -10,6 +10,7 @@ namespace Project.Service
         /// <summary>
         /// 取得會員訂單清單
         /// </summary>
+        /// <param name="memberId">會員編號</param>
         /// <returns>訂單清單</returns>
         List<OrderViewModel> GetMemberOrderList(int memberId);
 

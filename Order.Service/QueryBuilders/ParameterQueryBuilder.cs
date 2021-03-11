@@ -5,6 +5,9 @@
     /// </summary>
     public class ParameterQueryBuilder
     {
+        /// <summary>
+        /// 建構子
+        /// </summary>
         public ParameterQueryBuilder()
         {
         }

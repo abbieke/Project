@@ -11,8 +11,12 @@ namespace Project.Service
     /// </summary>
     public class MemberQueryBuilder
     {
+        /// <summary>
+        /// 建構子
+        /// </summary>
         public MemberQueryBuilder()
-        { }
+        {
+        }
 
         /// <summary>
         /// 取得確認登入資訊 Sql

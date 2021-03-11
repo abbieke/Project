@@ -39,9 +39,9 @@ namespace Project.Repository
         /// <returns>執行結果</returns>
         public int Execute(string sql, object param = null)
         {
-            using (conn = new SqlConnection(connString))
+            using (this.conn = new SqlConnection(connString))
             {
-                return conn.Execute(sql, param);
+                return this.conn.Execute(sql, param);
             }
         }
 
@@ -54,9 +54,9 @@ namespace Project.Repository
         /// <returns>結果</returns>
         public IEnumerable<TModel> Query<TModel>(string sql, object param = null)
         {
-            using (conn = new SqlConnection(connString))
+            using (this.conn = new SqlConnection(connString))
             {
-                return conn.Query<TModel>(sql, param);
+                return this.conn.Query<TModel>(sql, param);
             }
         }
     }

@@ -5,8 +5,12 @@
     /// </summary>
     public class OrderQueryBuilder
     {
+        /// <summary>
+        /// 建構子
+        /// </summary>
         public OrderQueryBuilder()
-        { }
+        { 
+        }
 
         /// <summary>
         /// 取得會員訂單清單 Sql

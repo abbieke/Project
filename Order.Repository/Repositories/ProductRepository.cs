@@ -9,9 +9,19 @@ namespace Project.Repository
     /// </summary>
     public class ProductRepository : IProductRepository
     {
+        /// <summary>
+        /// 連線字串
+        /// </summary>
         private static string connString;
+
+        /// <summary>
+        /// 開啟連接
+        /// </summary>
         private SqlConnection conn;
 
+        /// <summary>
+        /// 建構子
+        /// </summary>
         public ProductRepository()
         {
             if (string.IsNullOrEmpty(connString))
@@ -29,9 +39,9 @@ namespace Project.Repository
         /// <returns>結果</returns>
         public TModel Query<TModel>(string sql, object param = null)
         {
-            using (conn = new SqlConnection(connString))
+            using (this.conn = new SqlConnection(connString))
             {
-                return conn.QueryFirstOrDefault<TModel>(sql, param);
+                return this.conn.QueryFirstOrDefault<TModel>(sql, param);
             }
         }
     }

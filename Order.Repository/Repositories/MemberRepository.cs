@@ -16,7 +16,7 @@ namespace Project.Repository
         private static string connString;
 
         /// <summary>
-        /// 連接DB
+        /// 開啟連接
         /// </summary>
         private SqlConnection conn;
 
@@ -40,9 +40,9 @@ namespace Project.Repository
         /// <returns>結果</returns>
         public IEnumerable<TModel> Query<TModel>(string sql, object param = null)
         {
-            using (conn = new SqlConnection(connString))
+            using (this.conn = new SqlConnection(connString))
             {
-                return conn.Query<TModel>(sql, param);
+                return this.conn.Query<TModel>(sql, param);
             }
         }
     }

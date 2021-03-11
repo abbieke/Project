@@ -16,7 +16,7 @@ namespace Project.Service.Models
         /// 會員密碼
         /// </summary>
         [DataType(DataType.Password)]
-        [Required(ErrorMessage ="請輸入密碼")]
+        [Required(ErrorMessage = "請輸入密碼")]
         public string Password { get; set; }
     }
 }

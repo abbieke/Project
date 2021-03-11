@@ -9,7 +9,8 @@
         /// 建構子
         /// </summary>
         public ProductQueryBuilder()
-        { }
+        { 
+        }
 
         /// <summary>
         /// 取得商品資訊 Sql

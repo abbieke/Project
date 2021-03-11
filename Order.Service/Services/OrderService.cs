@@ -25,6 +25,7 @@ namespace Project.Service
         /// 建構子
         /// </summary>
         /// <param name="orderRepository">訂單儲存庫</param>
+        /// <param name="shippingOrderService">參數表服務</param>
         public OrderService(
             IOrderRepository orderRepository,
             IShippingOrderService shippingOrderService)
@@ -36,6 +37,7 @@ namespace Project.Service
         /// <summary>
         /// 取得會員訂單清單
         /// </summary>
+        /// <param name="memberId">會員編號</param>
         /// <returns>訂單清單</returns>
         public List<OrderViewModel> GetMemberOrderList(int memberId)
         {
